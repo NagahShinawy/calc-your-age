@@ -5,6 +5,8 @@ from tkinter import Tk, Entry, StringVar, Button, messagebox
 
 from age import Age
 
+KNOW_YOUR_NUMBERS = "Know Your Numbers"
+
 
 class AgeUI(Tk):
     """"
@@ -55,7 +57,7 @@ class AgeUI(Tk):
         :return:
         """
         default_age_value = StringVar()
-        default_age_value.set("00")
+        default_age_value.set("01")
         self.age_input = Entry(
             width=2, font=self.DEFAULT_FONT_CONFIG, textvariable=default_age_value
         )
@@ -66,7 +68,6 @@ class AgeUI(Tk):
         create btn and trigger it with calc age in numbers
         :return:
         """
-        value = Age(self.age_input.get())
         btn = Button(
             text="Calculate Age",
             width=20,
@@ -74,24 +75,23 @@ class AgeUI(Tk):
             bg="#e91e63",
             fg="white",
             borderwidth=0,
-            command=lambda: self.show_your_numbers(value),
+            command=self.show_your_numbers,
         )
         btn.pack()
 
-    @staticmethod
-    def show_your_numbers(value):
+    def show_your_numbers(self):
         """
         show numbers in message box, knowYourNumbers (kyn)
-        :param value: age value to be calculated and show numbers else show error
         :return:
         """
-        if value.error is None:
-            kyn = value.know_your_numbers()
-            message = "\n".join([f"{kyn.months} Months", f"{kyn.weeks} Weeks", f"{kyn.days} Days"])
+        age = Age(self.age_input.get())
+        if age.error:
+            message = age.error
         else:
-            message = value.error
+            kyn = age.know_your_numbers()
+            message = "\n".join([f"{kyn.months} Months", f"{kyn.weeks} Weeks", f"{kyn.days} Days"])
 
-        messagebox.showinfo(message)
+        messagebox.showinfo(title=KNOW_YOUR_NUMBERS, message=message)
 
     def run(self):
         """

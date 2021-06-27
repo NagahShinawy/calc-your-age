@@ -3,11 +3,13 @@ created by Nagaj at 27/06/2021
 """
 from collections import namedtuple
 
-from operator import Equal, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual
+from operator_ import Equal, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual
 
 MONTHS_IN_YEAR = 12
 WEEKS_IN_YEAR = 52
 DAYS_IN_YEAR = 365
+MIN_AGE = 1
+MAX_AGE = 120
 
 
 class Age:
@@ -15,12 +17,11 @@ class Age:
     present age
     """
 
-    INVALID_INT = "Invalid Value of Int {}"
+    INVALID_INT = "Invalid Value of Int '{}'"
     INVALID_AGE = "Age Can not be {}"
 
     def __init__(self, value):
         self.value = value
-        self.error = None
         self.AgeInNumbers = namedtuple(  # pylint: disable=C0103
             "AgeInNumbers", ["months", "weeks", "days"]
         )  # pylint: disable=C0103
@@ -29,16 +30,29 @@ class Age:
         return f"Age(value={self.value})"
 
     def __setattr__(self, key, value):
+        pass
+        # error = None
+        # if key == "value":
+        #     try:
+        #         age = int(value)
+        #         if age not in range(MIN_AGE, MAX_AGE):
+        #             error = self.INVALID_AGE.format(age)
+        #         super().__setattr__(key, age)
+        #     except ValueError:
+        #         self.error = self.INVALID_INT.format(value)
+        #     setattr(self, 'error', error)
+        # super().__setattr__(key, value)
+        error = None
         if key == "value":
             try:
                 value = int(value)
+                if value not in range(MIN_AGE, MAX_AGE):
+                    error = self.INVALID_AGE.format(value)
+
             except ValueError:
-                self.error = self.INVALID_INT.format(value)
-
-            if value not in range(1, 120):
-                self.error = self.INVALID_AGE.format(value)
-
-        return super().__setattr__(key, value)
+                error = self.INVALID_INT.format(value)
+            setattr(self, "error", error)
+        super().__setattr__(key, value)
 
     @staticmethod
     def is_valid_number(other):
