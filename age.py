@@ -30,18 +30,6 @@ class Age:
         return f"Age(value={self.value})"
 
     def __setattr__(self, key, value):
-        pass
-        # error = None
-        # if key == "value":
-        #     try:
-        #         age = int(value)
-        #         if age not in range(MIN_AGE, MAX_AGE):
-        #             error = self.INVALID_AGE.format(age)
-        #         super().__setattr__(key, age)
-        #     except ValueError:
-        #         self.error = self.INVALID_INT.format(value)
-        #     setattr(self, 'error', error)
-        # super().__setattr__(key, value)
         error = None
         if key == "value":
             try:
