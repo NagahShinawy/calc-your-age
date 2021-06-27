@@ -87,11 +87,13 @@ class AgeUI(Tk):
         age = Age(self.age_input.get())
         if age.error:
             message = age.error
+            show = messagebox.showerror
         else:
             kyn = age.know_your_numbers()
             message = "\n".join([f"{kyn.months} Months", f"{kyn.weeks} Weeks", f"{kyn.days} Days"])
+            show = messagebox.showinfo
 
-        messagebox.showinfo(title=KNOW_YOUR_NUMBERS, message=message)
+        show(title=KNOW_YOUR_NUMBERS, message=message)
 
     def run(self):
         """
