@@ -5,6 +5,10 @@ from collections import namedtuple
 
 from operator import Equal, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual
 
+MONTHS_IN_YEAR = 12
+WEEKS_IN_YEAR = 52
+DAYS_IN_YEAR = 365
+
 
 class Age:
     """
@@ -50,9 +54,9 @@ class Age:
         calc age from years to months, weeks, days
         :return:
         """
-        months = self.value * 12
-        weeks = self.value * 52
-        days = self.value * 365
+        months = self.value * MONTHS_IN_YEAR
+        weeks = self.value * WEEKS_IN_YEAR
+        days = self.value * DAYS_IN_YEAR
         return self.AgeInNumbers(months=months, weeks=weeks, days=days)
 
     def is_valid(self, other):
