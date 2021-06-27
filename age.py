@@ -1,7 +1,7 @@
 """
 created by Nagaj at 27/06/2021
 """
-from operator import Eq, Lt, Le, Ge, Gt
+from operator import Equal, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual
 
 
 class Age:
@@ -49,16 +49,16 @@ class Age:
         return self.__class__ == other.__class__
 
     def __le__(self, other):
-        return Le().perform(self, other)
+        return LessThanOrEqual().perform(self, other)
 
     def __lt__(self, other):
-        return Lt().perform(self, other)
+        return LessThan().perform(self, other)
 
     def __eq__(self, other):
-        return Eq().perform(self, other)
+        return Equal().perform(self, other)
 
     def __gt__(self, other):
-        return Gt().perform(self, other)
+        return GreaterThan().perform(self, other)
 
     def __ge__(self, other):
-        return Ge().perform(self, other)
+        return GreaterThanOrEqual().perform(self, other)

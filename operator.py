@@ -15,7 +15,7 @@ class Operator(ABC):  # pylint: disable=R0903
         pass
 
 
-class Eq(Operator):  # pylint: disable=R0903
+class Equal(Operator):  # pylint: disable=R0903
     """
     perform eq functionality
     """
@@ -34,7 +34,7 @@ class Eq(Operator):  # pylint: disable=R0903
         return None
 
 
-class Lt(Operator):  # pylint: disable=R0903
+class LessThan(Operator):  # pylint: disable=R0903
     """
     perform lt functionality
     """
@@ -54,7 +54,7 @@ class Lt(Operator):  # pylint: disable=R0903
         return None
 
 
-class Le(Operator):  # pylint: disable=R0903
+class LessThanOrEqual(Operator):  # pylint: disable=R0903
     """
         perform less equal functionality
     """
@@ -75,7 +75,7 @@ class Le(Operator):  # pylint: disable=R0903
         return None
 
 
-class Gt(Operator):  # pylint: disable=R0903
+class GreaterThan(Operator):  # pylint: disable=R0903
     """
         perform greater than functionality
     """
@@ -95,7 +95,7 @@ class Gt(Operator):  # pylint: disable=R0903
         return None
 
 
-class Ge(Operator):  # pylint: disable=R0903
+class GreaterThanOrEqual(Operator):  # pylint: disable=R0903
     """
             perform greater than or equal functionality
     """

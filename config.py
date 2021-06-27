@@ -18,7 +18,7 @@ class AgeUI(Tk):
         :param title: window title
         :param image: image title bar
         :param is_center: window to center ?
-        :param kwargs: more options like widht, height
+        :param kwargs: more options like width, height
         :return:
         """
         self.title(title)
