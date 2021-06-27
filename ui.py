@@ -81,13 +81,13 @@ class AgeUI(Tk):
     @staticmethod
     def show_your_numbers(value):
         """
-        show numbers in message box
+        show numbers in message box, knowYourNumbers (kyn)
         :param value: age value to be calculated and show numbers else show error
         :return:
         """
         if value.error is None:
-            innumbers = value.know_your_numbers()
-            message = "\n".join([innumbers.months, innumbers.weight, innumbers.days])
+            kyn = value.know_your_numbers()
+            message = "\n".join([f"{kyn.months} Months", f"{kyn.weeks} Weeks", f"{kyn.days} Days"])
         else:
             message = value.error
 
