@@ -5,15 +5,16 @@ from tkinter import *
 
 
 class AgeUI(Tk):
-
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
-    def config(self, title, is_center=False, **kwargs):
+    def config(self, title, image=None, is_center=False, **kwargs):
         self.title(title)
         super().config(**kwargs)
         if is_center:
             self.center(self["width"], self["height"])
+        if image:
+            self.iconbitmap(image)
 
     def center(self, window_width, window_height) -> None:
         """
