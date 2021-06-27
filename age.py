@@ -5,6 +5,10 @@ from operator import Eq, Lt, Le, Ge, Gt
 
 
 class Age:
+    """
+    present age
+    """
+
     INVALID_INT = "Invalid Value of Int {}"
     INVALID_AGE = "Age Can not be {}"
 
@@ -29,27 +33,32 @@ class Age:
 
     @staticmethod
     def is_valid_number(other):
+        """
+        check if other is valid number int, float type
+        :param other:
+        :return:
+        """
         return isinstance(other, (int, float))
 
     def is_valid_age(self, other):
+        """
+        check if other age obj to compare
+        :param other:
+        :return:
+        """
         return self.__class__ == other.__class__
 
     def __le__(self, other):
-        le = Le()
-        return le.perform(self, other)
+        return Le().perform(self, other)
 
     def __lt__(self, other):
-        lt = Lt()
-        return lt.perform(self, other)
+        return Lt().perform(self, other)
 
     def __eq__(self, other):
-        eq = Eq()
-        return eq.perform(self, other)
+        return Eq().perform(self, other)
 
     def __gt__(self, other):
-        gt = Gt()
-        return gt.perform(self, other)
+        return Gt().perform(self, other)
 
     def __ge__(self, other):
-        ge = Ge()
-        return ge.perform(self, other)
+        return Ge().perform(self, other)

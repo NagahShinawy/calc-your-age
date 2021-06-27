@@ -1,14 +1,26 @@
 """
 created by Nagaj at 27/06/2021
 """
-from tkinter import *
+from tkinter import Tk
 
 
 class AgeUI(Tk):
+    """"
+    ui class for app
+    """
+
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
 
     def config(self, title, image=None, is_center=False, **kwargs):
+        """
+
+        :param title: window title
+        :param image: image title bar
+        :param is_center: window to center ?
+        :param kwargs: more options like widht, height
+        :return:
+        """
         self.title(title)
         super().config(**kwargs)
         if is_center:
@@ -31,4 +43,8 @@ class AgeUI(Tk):
         self.geometry(f"{window_width}x{window_height}+{x_cordinate}+{y_cordinate}")
 
     def run(self):
+        """
+        keep app opened
+        :return:
+        """
         self.mainloop()
