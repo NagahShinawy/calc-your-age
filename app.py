@@ -1,7 +1,7 @@
 """
 created by Nagaj at 27/06/2021
 """
-from config import AgeUI
+from ui import AgeUI
 
 IMAGE = "./static/age.ico"
 TITLE_BAR = "Calc Your Age"

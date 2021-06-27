@@ -27,7 +27,7 @@ class Equal(Operator):  # pylint: disable=R0903
         :param other: age, int, float obj
         :return:
         """
-        if age.is_valid_age(other):
+        if age.is_valid(other):
             return age.value == other.value
         if age.is_valid_number(other):
             return age.value == other
@@ -46,7 +46,7 @@ class LessThan(Operator):  # pylint: disable=R0903
            :param other: age, int, float obj
            :return:
         """
-        if age.is_valid_age(other):
+        if age.is_valid(other):
             return age.value < other.value
         if age.is_valid_number(other):
             return age.value < other
@@ -67,7 +67,7 @@ class LessThanOrEqual(Operator):  # pylint: disable=R0903
            :return:
         """
 
-        if age.is_valid_age(other):
+        if age.is_valid(other):
             return age.value <= other.value
         if age.is_valid_number(other):
             return age.value <= other
@@ -87,7 +87,7 @@ class GreaterThan(Operator):  # pylint: disable=R0903
            :param other: age, int, float obj
            :return:
         """
-        if age.is_valid_age(other):
+        if age.is_valid(other):
             return age.value > other.value
         if age.is_valid_number(other):
             return age.value > other
@@ -107,7 +107,7 @@ class GreaterThanOrEqual(Operator):  # pylint: disable=R0903
            :param other: age, int, float obj
            :return:
         """
-        if age.is_valid_age(other):
+        if age.is_valid(other):
             return age.value >= other.value
         if age.is_valid_number(other):
             return age.value >= other

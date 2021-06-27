@@ -1,6 +1,8 @@
 """
 created by Nagaj at 27/06/2021
 """
+from collections import namedtuple
+
 from operator import Equal, LessThan, LessThanOrEqual, GreaterThan, GreaterThanOrEqual
 
 
@@ -15,6 +17,9 @@ class Age:
     def __init__(self, value):
         self.value = value
         self.error = None
+        self.AgeInNumbers = namedtuple(  # pylint: disable=C0103
+            "AgeInNumbers", ["months", "weeks", "days"]
+        )  # pylint: disable=C0103
 
     def __repr__(self):
         return f"Age(value={self.value})"
@@ -40,7 +45,17 @@ class Age:
         """
         return isinstance(other, (int, float))
 
-    def is_valid_age(self, other):
+    def know_your_numbers(self):
+        """
+        calc age from years to months, weeks, days
+        :return:
+        """
+        months = self.value * 12
+        weeks = self.value * 52
+        days = self.value * 365
+        return self.AgeInNumbers(months=months, weeks=weeks, days=days)
+
+    def is_valid(self, other):
         """
         check if other age obj to compare
         :param other:
