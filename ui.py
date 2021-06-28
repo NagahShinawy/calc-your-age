@@ -1,7 +1,7 @@
 """
 created by Nagaj at 27/06/2021
 """
-from tkinter import Tk, Entry, StringVar, Button, messagebox
+from tkinter import Tk, Entry, IntVar, Button, messagebox
 
 from age import Age
 
@@ -56,8 +56,7 @@ class AgeUI(Tk):
         set default value for age and init entry input
         :return:
         """
-        default_age_value = StringVar()
-        default_age_value.set("01")
+        default_age_value = IntVar()
         self.age_input = Entry(
             width=2, font=self.DEFAULT_FONT_CONFIG, textvariable=default_age_value
         )
@@ -72,7 +71,7 @@ class AgeUI(Tk):
             text="Calculate Age",
             width=20,
             height=2,
-            bg="#e91e63",
+            bg="#4caf50",
             fg="white",
             borderwidth=0,
             command=self.show_your_numbers,
