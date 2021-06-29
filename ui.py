@@ -6,14 +6,29 @@ from tkinter import Tk, Entry, IntVar, Button, messagebox
 from age import Age
 
 KNOW_YOUR_NUMBERS = "Know Your Numbers"
+INPUT_AGE_X = 230
+INPUT_AGE_Y = 80
+DEFAULT_AGE = "01"
+BTN_X = 150
+BTN_Y = 150
+BTN_GREEN_BG = "#4caf50"
+BTN_WHITE_FG = "white"
+BTN_BORDER_WIDTH = 0
+BTN_TEXT = "Calculate Age"
+BTN_WIDTH = 20
+BTN_HEIGHT = 2
+DEFAULT_FONT_CONFIG = (
+    "Arial",
+    30,
+)
+ENTRY_WIDTH = 2
+BTN_FONT = ("Arial", 12, "bold")
 
 
 class AgeUI(Tk):
     """"
     ui class for app
     """
-
-    DEFAULT_FONT_CONFIG = ("Arial", 30)
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
@@ -34,7 +49,7 @@ class AgeUI(Tk):
             self.center(self["width"], self["height"])
         if image:
             self.iconbitmap(image)
-        self.default_value()
+        self.set_default_value()
         self.create_calc_btn()
 
     def center(self, window_width, window_height) -> None:
@@ -51,16 +66,18 @@ class AgeUI(Tk):
         y_cordinate = int((screen_height / 2) - (window_height / 2))
         self.geometry(f"{window_width}x{window_height}+{x_cordinate}+{y_cordinate}")
 
-    def default_value(self):
+    def set_default_value(self):
         """
         set default value for age and init entry input
         :return:
         """
         default_age_value = IntVar()
+        default_age_value.set(DEFAULT_AGE)
         self.age_input = Entry(
-            width=2, font=self.DEFAULT_FONT_CONFIG, textvariable=default_age_value
+            width=ENTRY_WIDTH, font=DEFAULT_FONT_CONFIG, textvariable=default_age_value
         )
-        self.age_input.pack()
+        self.age_input.place(x=INPUT_AGE_X, y=INPUT_AGE_Y)
+        # self.age_input.pack()
 
     def create_calc_btn(self):
         """
@@ -68,15 +85,17 @@ class AgeUI(Tk):
         :return:
         """
         btn = Button(
-            text="Calculate Age",
-            width=20,
-            height=2,
-            bg="#4caf50",
-            fg="white",
-            borderwidth=0,
+            text=BTN_TEXT,
+            width=BTN_WIDTH,
+            height=BTN_HEIGHT,
+            bg=BTN_GREEN_BG,
+            fg=BTN_WHITE_FG,
+            borderwidth=BTN_BORDER_WIDTH,
+            font=BTN_FONT,
             command=self.show_your_numbers,
         )
-        btn.pack()
+        btn.place(x=BTN_X, y=BTN_Y)
+        # btn.pack()
 
     def show_your_numbers(self):
         """

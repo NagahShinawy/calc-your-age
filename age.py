@@ -17,8 +17,9 @@ class Age:
     present age
     """
 
-    INVALID_INT = "Invalid Value of Int '{}'"
+    INVALID_INT = "Invalid Integer Value for {}"
     INVALID_AGE = "Age Can not be {}"
+    EMPTY = "Empty Age, Please Type Your Age."
 
     def __init__(self, value):
         self.value = value
@@ -38,7 +39,11 @@ class Age:
                     error = self.INVALID_AGE.format(value)
 
             except ValueError:
-                error = self.INVALID_INT.format(value)
+                if value == "":
+                    error = self.EMPTY
+                else:
+                    error = self.INVALID_INT.format(value)
+
             setattr(self, "error", error)
         super().__setattr__(key, value)
 
