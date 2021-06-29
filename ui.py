@@ -5,7 +5,7 @@ from tkinter import Tk, Entry, IntVar, Button, messagebox
 
 from age import Age
 
-KNOW_YOUR_NUMBERS = "Know Your Numbers"
+KNOW_YOUR_NUMBERS = "KYN"
 INPUT_AGE_X = 230
 INPUT_AGE_Y = 80
 DEFAULT_AGE = "01"

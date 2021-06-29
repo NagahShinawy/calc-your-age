@@ -18,7 +18,7 @@ class Age:
     """
 
     INVALID_INT = "Invalid Integer Value for {}"
-    INVALID_AGE = "Age Can not be {}"
+    INVALID_AGE = "Age Can not be {}. accept only from 1 to 120"
     EMPTY = "Empty Age, Please Type Your Age."
 
     def __init__(self, value):
